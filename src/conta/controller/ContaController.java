@@ -40,8 +40,13 @@ public class ContaController implements ContaRepository {
 
 	@Override
 	public void atualizar(Conta conta) {
-		// TODO Auto-generated method stub
-
+		var buscaConta = buscarNaCollection(conta.getNumero());
+		
+		if (buscaConta != null) {
+			listaContas.set(listaContas.indexOf(buscaConta), conta);
+			System.out.println("A Conta numero: " + conta.getNumero() + " foi atualizada com sucesso!");
+		} else
+			System.out.println("A Conta número: " + conta.getNumero() + " não foi encontrada!");
 	}
 
 	@Override

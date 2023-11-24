@@ -11,9 +11,8 @@ public class ContaController implements ContaRepository {
 	int numero = 0;//Criamos uma variável do tipo int chamada numero, armazenará o numero da última conta que foi criada.
 	@Override
 	public void procurarPorNumero(int numero) {
-		// TODO Auto-generated method stub	
+		
 	}
-	
 	@Override
 	public void listarTodas() {
 		for(var conta : listaContas) {
@@ -62,5 +61,13 @@ public class ContaController implements ContaRepository {
 	public int gerarNumero() {
 		return ++ numero;
 	}
-
+	
+	public Conta buscarNaCollection(int numero) {
+		for (var conta : listaContas ) {
+			if (conta.getNumero() == numero) {
+				return conta;
+			}
+		}
+		return null;
+	}
 }

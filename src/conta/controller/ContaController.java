@@ -11,8 +11,14 @@ public class ContaController implements ContaRepository {
 	int numero = 0;//Criamos uma variável do tipo int chamada numero, armazenará o numero da última conta que foi criada.
 	@Override
 	public void procurarPorNumero(int numero) {
+		var conta = buscarNaCollection(numero);
 		
+		if(conta != null)
+			conta.visualizar();
+		else
+			System.out.println("\n A conta número: " + numero + "não foi encontrada!");
 	}
+	
 	@Override
 	public void listarTodas() {
 		for(var conta : listaContas) {

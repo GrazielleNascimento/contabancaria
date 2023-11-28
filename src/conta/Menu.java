@@ -17,9 +17,9 @@ public class Menu {
 
 		Scanner leia = new Scanner(System.in);
 
-		int opcao, numero, agencia, tipo = 0, aniversario;
+		int opcao, numero, agencia, tipo = 0, aniversario, numeroDestino;
 		String titular;
-		float saldo, limite;
+		float saldo, limite, valor;
 
 		ContaCorrente cc1 = new ContaCorrente(contas.gerarNumero(), 123, 1, "João da Silva", 1000f, 100.00f);
 		contas.cadastrar(cc1);
@@ -174,7 +174,14 @@ public class Menu {
 				break;
 			case 6:
 				System.out.println(Cores.TEXT_WHITE + "Saque\n\n");
-
+				System.out.println("Digite o numero da conta: ");
+				numero = leia.nextInt();
+				
+				do {//Foi criado um Laço de repetição do...while, para garantir que a variável valor receba via teclado um numero positivo e maior do que zero.
+					System.out.println("Digite o valor do saque (R$): ");
+					valor = leia.nextFloat();
+				}while(valor <=0);
+				
 				keyPress();
 				break;
 			case 7:

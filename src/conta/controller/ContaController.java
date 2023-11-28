@@ -75,7 +75,7 @@ public class ContaController implements ContaRepository {
 				System.out.println("\nA Conta numero: " + numero + " não foi encontrada!");
 	        
 	    }
-
+// Antes de Efetuar o depósito na conta, precisamos verificar se a conta existe. Observe que foi criada a variável local conta, para receber o Objeto da Classe Conta, que foi encontrado na Collection listaContas. Esse Objeto foi criado através da palavra reservada var. Por inferência, a palavra reservada var entende que a variável conta, deve ser um Objeto da Classe Conta, porque receberá o retorno do Método buscarNaCollection.
 	    @Override
 	    public void depositar(int numero, float valor) {
 	        var conta = buscarNaCollection(numero);
@@ -84,7 +84,7 @@ public class ContaController implements ContaRepository {
 	        	conta.depositar(valor);
 	        	System.out.println("\n O Deposito na Conta numero: " + numero + " foi efetuado com sucesso!");
 	        }else
-	        	System.out.println("\nA Conta número " + numero + " não foi encontrada ou a Conta destino não é uma Conta Corrente!"););
+	        	System.out.println("\nA Conta número " + numero + " não foi encontrada ou a Conta destino não é uma Conta Corrente!");
 	    }
 	    @Override
 	    public void transferir(int numeroOrigem, int numeroDestino, float valor) {

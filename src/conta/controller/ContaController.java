@@ -61,24 +61,27 @@ public class ContaController implements ContaRepository {
 
 	}
 
-	@Override
-	public void sacar(int numero, float valor) {
-		// TODO Auto-generated method stub
+	 @Override
+	    public void sacar(int numero, float valor) {
+	        var conta = buscarNaCollection(numero);
+			
+			if (conta != null) {
+				
+				if(conta.sacar(valor) == true)
+					System.out.println("\nO Saque na Conta numero: " + numero + " foi efetuado com sucesso!");		
+			
+			}else
+				System.out.println("\nA Conta numero: " + numero + " não foi encontrada!");
+	        
+	    }
 
-	}
+	    @Override
+	    public void depositar(int numero, float valor) {
+	        
 
-	@Override
-	public void depositar(int numero, float valor) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-		// TODO Auto-generated method stub
-
-	}
-
+	    @Override
+	    public void transferir(int numeroOrigem, int numeroDestino, float valor) {
+	       
 	public int gerarNumero() {
 		return ++numero;
 	}
@@ -90,5 +93,17 @@ public class ContaController implements ContaRepository {
 			}
 		}
 		return null;
+	}
+	/**
+	 * Método para retornar o Tipo da Conta
+	 * */
+	public int retornaTipo(int numero) {
+		for (var conta : listaContas) {
+			if (conta.getNumero() == numero) {
+				return conta.getTipo();
+			}
+		}
+		
+		return 0;
 	}
 }

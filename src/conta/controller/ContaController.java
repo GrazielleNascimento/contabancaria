@@ -78,10 +78,10 @@ public class ContaController implements ContaRepository {
 	    @Override
 	    public void depositar(int numero, float valor) {
 	        
-
+	    }
 	    @Override
 	    public void transferir(int numeroOrigem, int numeroDestino, float valor) {
-	       
+	    }
 	public int gerarNumero() {
 		return ++numero;
 	}
